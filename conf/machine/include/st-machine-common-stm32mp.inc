@@ -92,7 +92,7 @@ MOUNT_PARTITIONS_LIST += "${@bb.utils.contains('ST_VENDORFS','1','${STM32MP_VEND
 
 # Define image partition size (supposed to be set as max size in image recipe)
 # Proposed value for bootfs is 64MB
-BOOTFS_PARTITION_SIZE = "65536"
+BOOTFS_PARTITION_SIZE ?= "65536"
 # Proposed value for rootfs should fit our highest constraint: NAND size (1GiB)
 # For optee bootscheme we have the maximum partitions:
 #   FSBL1 + SSBL + SSBL2 + TEEH + TEED + TEEX + Multivolume UBI = NAND size
@@ -108,11 +108,11 @@ BOOTFS_PARTITION_SIZE = "65536"
 #   rootfs < 1016.5MiB - (256KiB + 256KiB + 64MiB + 16MiB + 128MiB + 53360KiB + 4 * 9 * 256KiB)
 #   rootfs < 746.8MiB
 # Proposed value for rootfs is 746MiB
-ROOTFS_PARTITION_SIZE = "763904"
+ROOTFS_PARTITION_SIZE ?= "763904"
 # Proposed value for userfs is 128MB (4*32MB)
-USERFS_PARTITION_SIZE = "131072"
+USERFS_PARTITION_SIZE ?= "131072"
 # Proposed value for vendorfs is 16MB
-VENDORFS_PARTITION_SIZE = "16384"
+VENDORFS_PARTITION_SIZE ?= "16384"
 
 # Define the max size for ROOTFS image being built
 # On other image partition such settings is directly done in image recipe
