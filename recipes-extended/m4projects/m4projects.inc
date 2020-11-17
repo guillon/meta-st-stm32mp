@@ -157,3 +157,4 @@ FILES_${PN} += "${nonarch_base_libdir}/firmware ${sysconfdir}/init.d ${systemd_u
 FILES_${PN} += "${@bb.utils.contains('M4_PACKAGE_4USERFS', '1', '', '${M4_OUTPUT_4USERFS}', d)}"
 FILES_${PN}-userfs = "${@bb.utils.contains('M4_PACKAGE_4USERFS', '1', '${M4_OUTPUT_4USERFS}', '', d)}"
 RDEPENDS_${PN}-userfs += "busybox"
+ALLOW_EMPTY_${PN}-userfs = "1"
